@@ -54,8 +54,8 @@ void fft_stages(DTYPE X_R[SIZE], DTYPE X_I[SIZE], int stage, DTYPE OUT_R[SIZE], 
 			{
 
 				i_lower = i + numBF;			//index of lower point in butterfly
-				temp_R = X_R[i_lower]*c- X_I[i_lower]*s;
-				temp_I = X_I[i_lower]*c+ X_R[i_lower]*s;
+				temp_R = X_R[i_lower]*W_real[j]- X_I[i_lower]*W_imag[j];
+				temp_I = X_I[i_lower]*W_real[j]+ X_R[i_lower]*W_imag[j];
 
 				OUT_R[i_lower] = X_R[i] - temp_R;
 				OUT_I[i_lower] = X_I[i] - temp_I;
